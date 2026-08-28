@@ -1,0 +1,10 @@
+r/r 5:	Client Info.mdb
+r/r * 8:	Billing Letter.doc
+r/r * 11:	confirmation.txt
+r/r 13:	Income.xls
+r/r * 15:	letter1.txt
+r/r * 17:	Regrets.doc
+v/v 45779:	$MBR
+v/v 45780:	$FAT1
+v/v 45781:	$FAT2
+V/V 45782:	$OrphanFiles

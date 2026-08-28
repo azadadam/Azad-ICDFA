@@ -1,0 +1,6 @@
+IMAGE FILE INFORMATION
+--------------------------------------------
+Image Type: raw
+
+Size in bytes: 1474560
+Sector size:	512

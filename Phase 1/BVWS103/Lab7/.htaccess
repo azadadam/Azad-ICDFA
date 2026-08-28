@@ -1,0 +1,11 @@
+# .htaccess with proper security configurations
+# Restrict access to sensitive files
+<Files ".ht*">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>

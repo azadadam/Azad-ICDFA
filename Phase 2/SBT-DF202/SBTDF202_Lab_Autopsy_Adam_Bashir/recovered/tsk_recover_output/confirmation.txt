@@ -1,0 +1,12 @@
+Laura,
+The domain has been registered and you can upload your
+files by going to this ftp address using your browser.
+
+ftp.acmeserver.com
+
+login id: laura.roper
+password: 342rroiu9
+
+Thank you for your business
+
+George
