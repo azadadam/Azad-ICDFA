@@ -1,0 +1,7 @@
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             JPEG image data, EXIF standard
+12            0xC             TIFF image data, little-endian offset of first image directory: 8
+26844         0x68DC          Copyright string: "Copyright 1999 Adobe Systems Incorporated"
+

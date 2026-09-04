@@ -1,0 +1,8 @@
+DOS Partition Table
+Offset Sector: 0
+Units are in 512-byte sectors
+
+      Slot      Start        End          Length       Description
+000:  Meta      0000000000   0000000000   0000000001   Primary Table (#0)
+001:  -------   0000000000   0000000127   0000000128   Unallocated
+002:  000:000   0000000128   0000243711   0000243584   Win95 FAT16 (0x0e)

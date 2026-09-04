@@ -1,0 +1,45 @@
+﻿Created By AccessData® FTK® Imager 4.5.0.3 
+
+Case Information: 
+Acquired using: ADI4.5.0.3
+Case Number: USB File Carving
+Evidence Number: UB-002
+Unique description: USB files used for file carving
+Examiner: Frank Xu
+Notes: University of Baltimore
+
+--------------------------------------------------------------
+
+Information for D:\cloud_storage\OneDrive - University of Baltimore\UBal\research\DOJ\DOJ_Team_Repository\DOJ_Case_Study\0_Basic_Computer_Skills_for_Forensics\file_carving\usb_image\120M\usb_fat_carving:
+
+Physical Evidentiary Item (Source) Information:
+[Device Info]
+ Source Type: Physical
+[Drive Geometry]
+ Cylinders: 15
+ Tracks per Cylinder: 255
+ Sectors per Track: 63
+ Bytes per Sector: 512
+ Sector Count: 243,712
+[Physical Drive Information]
+ Drive Model: General UDisk USB Device
+ Drive Serial Number: 	
+ Drive Interface Type: USB
+ Removable drive: True
+ Source data size: 119 MB
+ Sector count:    243712
+[Computed Hashes]
+ MD5 checksum:    ba4a1d0ba49f4a6667b00a3b3e85e604
+ SHA1 checksum:   bcc2d49fd49c9521ecb1739f6542c6bf327375ef
+
+Image Information:
+ Acquisition started:   Wed Sep 22 22:59:16 2021
+ Acquisition finished:  Wed Sep 22 22:59:31 2021
+ Segment list:
+  D:\cloud_storage\OneDrive - University of Baltimore\UBal\research\DOJ\DOJ_Team_Repository\DOJ_Case_Study\0_Basic_Computer_Skills_for_Forensics\file_carving\usb_image\120M\usb_fat_carving.001
+
+Image Verification Results:
+ Verification started:  Wed Sep 22 22:59:32 2021
+ Verification finished: Wed Sep 22 22:59:32 2021
+ MD5 checksum:    ba4a1d0ba49f4a6667b00a3b3e85e604 : verified
+ SHA1 checksum:   bcc2d49fd49c9521ecb1739f6542c6bf327375ef : verified

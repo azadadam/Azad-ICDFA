@@ -1,0 +1,40 @@
+FILE SYSTEM INFORMATION
+--------------------------------------------
+File System Type: FAT16
+
+OEM Name: MSDOS5.0
+Volume ID: 0x94105672
+Volume Label (Boot Sector): NO NAME    
+Volume Label (Root Directory): USB        
+File System Type Label: FAT16   
+
+Sectors before file system: 128
+
+File System Layout (in sectors)
+Total Range: 0 - 243583
+* Reserved: 0 - 3
+** Boot Sector: 0
+* FAT 0: 4 - 241
+* FAT 1: 242 - 479
+* Data Area: 480 - 243583
+** Root Directory: 480 - 511
+** Cluster Area: 512 - 243583
+
+METADATA INFORMATION
+--------------------------------------------
+Range: 2 - 3889670
+Root Directory: 2
+
+CONTENT INFORMATION
+--------------------------------------------
+Sector Size: 512
+Cluster Size: 2048
+Total Cluster Range: 2 - 60769
+
+FAT CONTENTS (in sectors)
+--------------------------------------------
+512-515 (4) -> EOF
+516-519 (4) -> EOF
+520-523 (4) -> EOF
+70976-71211 (236) -> EOF
+71212-71215 (4) -> EOF
