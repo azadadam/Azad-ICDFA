@@ -1,0 +1,5 @@
+Steganography is the practice of hiding information inside another file, such as an image, audio file, video, or document, so that the hidden information is not immediately noticeable.
+
+Steganography is important in digital forensics because criminals or other users may conceal evidence, confidential information, or malicious data inside ordinary-looking files. A forensic examiner can use hashing, file analysis, metadata examination, and specialized steganography tools to detect and recover hidden information.
+
+One common image steganography concept is LSB (Least Significant Bit) substitution. It hides information by modifying the least significant bits of pixel values. These small changes may not be visible to the human eye, while still allowing data to be stored inside the image.
