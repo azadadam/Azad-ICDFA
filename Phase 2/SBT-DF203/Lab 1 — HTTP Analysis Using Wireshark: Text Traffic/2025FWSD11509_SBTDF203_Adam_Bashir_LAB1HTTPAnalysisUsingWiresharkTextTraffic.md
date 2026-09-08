@@ -33,7 +33,8 @@ To generate the required traffic, a local Apache web server was configured to ho
    
 To maintain forensic integrity and strict chain-of-custody standards, a dedicated directory structure was configured prior to initiating any traffic generation or packet capture. The baseline directories isolate original raw evidence, working copies, exported objects, reports, screenshots, and custom scripts.  
    
-**Figure 01:** Directory Structure (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig01-directory.png`)  
+**Figure 01:** Directory Structure <img width="754" height="398" alt="Fig01-directory" src="https://github.com/user-attachments/assets/b8e54960-145c-4e59-97fa-ca61e2630c4c" />
+  
    
 ---  
    
@@ -41,7 +42,9 @@ To maintain forensic integrity and strict chain-of-custody standards, a dedicate
    
 I created `basic.html` containing my full name **Adam Bashir** and registration number **2025/FWSD/11509**, then hosted it locally using Apache on **127.0.0.1:80**. Verified the page with `curl`, which returned **HTTP/1.1 200 OK**, **Content-Type: text/html**, and **Content-Length: 135 bytes**. The verbose HTTP request and response were saved to `reports/curl_verbose.txt`.  
    
-**Figure 02:** Enable Apache (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig02-enable apache.png`)  
+**Figure 02:** Enable Apache <img width="933" height="526" alt="Fig02-enable apache" src="https://github.com/user-attachments/assets/9e7cd2ae-36af-43c1-86ef-64ffaf18e659" />
+
+  
    
 A test client request was initiated using:  
    
@@ -51,7 +54,8 @@ curl -v http://127.0.0.1/basic.html
    
 The client initiated a connection from ephemeral source port **60716** to target port **80**. The web server returned an **HTTP/1.1 200 OK** status header with a **Content-Length of 131 bytes**, serving the HTML payload containing the analyst identity markers (Adam Bashir and 2025/FWSD/11509). Output was piped to `reports/curl_verbose.txt` for audit tracking.  
    
-**Figure 03:** Web Service Verification (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig03-webservice.png`)  
+**Figure 03:** Web Service Verification <img width="695" height="491" alt="Fig03- webservice" src="https://github.com/user-attachments/assets/adca892f-90ce-4436-9cac-fc9b40e4f78e" />
+ 
    
 ---  
    
@@ -67,7 +71,9 @@ Both files produced the same SHA-256 hash:
    
 This confirms that the working copy matches the original evidence.  
    
-**Figure 04:** Capture Session (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig04-captere session.png`)  
+**Figure 04:** Capture Session <img width="1366" height="768" alt="Fig04- captere session" src="https://github.com/user-attachments/assets/7403b262-91be-42aa-9b0d-9dfeacfac2fe" />
+
+  
    
 ---  
    
@@ -87,7 +93,8 @@ The handshake occurred at approximately **22:49:45.636** on **8 September 2026**
 | 2 | SYN-ACK | 127.0.0.1:80 → 127.0.0.1:42846 | 0 | 1 |  
 | 3 | ACK | 127.0.0.1:42846 → 127.0.0.1:80 | 1 | 1 |  
    
-**Figure 05:** TCP Three-Way Handshake (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig05-the three tcp.png`)  
+**Figure 05:** TCP Three-Way Handshake <img width="1366" height="768" alt="Fig05- the three tcp" src="https://github.com/user-attachments/assets/f9c09ed5-b632-47a8-ae4e-24aae1a7cae3" />
+  
    
 ---  
    
@@ -109,7 +116,8 @@ Apache/2.4.68 (Debian)
    
 The response content type was **text/html** with a content length of **135 bytes**.  
    
-**Figure 06:** HTTP Request and Response (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig06-httprequest.png`)  
+**Figure 06:** HTTP Request and Response <img width="1366" height="768" alt="Fig06- httprequest" src="https://github.com/user-attachments/assets/eb2eb30d-7900-43cc-9784-302d86c714a7" />
+  
    
 ---  
    
@@ -125,7 +133,8 @@ Following the stream reconstructed the complete plaintext HTTP exchange, includi
    
 The connection terminated normally using **FIN/ACK** packets in **Frames 8 and 9**, confirming an orderly TCP session closure.  
    
-**Figure 07:** Connection Closure (`Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig07-connectin closue.png`)  
+**Figure 07:** Connection Closure <img width="1366" height="768" alt="Fig07- connectin closue" src="https://github.com/user-attachments/assets/e7ba4ee5-e742-476f-a461-e1a1e5e5b9ae" />
+  
    
 ---  
    
@@ -145,9 +154,12 @@ The capture used the local loopback interface, so the traffic remained within th
    
 **Figures:**  
    
-- Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig08-loopback.png  
-- Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig09-loopback2.png  
-- Phase 2/SBT-DF203/Lab 1 — HTTP Analysis Using Wireshark: Text Traffic/screenshots/Fig10-loopback3.png  
+- <img width="1366" height="768" alt="Fig08- loopback" src="https://github.com/user-attachments/assets/9c923688-04ef-41d8-b48e-8121088919f1" />
+  
+- <img width="1366" height="211" alt="Fig09-loopback2" src="https://github.com/user-attachments/assets/cb4254e8-a5c1-42d2-86d1-36cced992e35" />
+  
+- <img width="1366" height="768" alt="Fig10-loopback3" src="https://github.com/user-attachments/assets/09693a62-87f5-4e17-9ff1-37862c6aaa23" />
+  
    
 ---  
    
