@@ -1,4 +1,3 @@
-<img width="1366" height="768" alt="Fig01: Folder Creation" src="https://github.com/user-attachments/assets/922c3d02-56c5-4685-b0ff-a32af3429519" />
 # Lab 2 — HTTP Analysis Using Wireshark: Embedded Image Traffic
 
 | | |
