@@ -1,3 +1,4 @@
+<img width="1366" height="768" alt="Fig01: Folder Creation" src="https://github.com/user-attachments/assets/922c3d02-56c5-4685-b0ff-a32af3429519" />
 # Lab 2 — HTTP Analysis Using Wireshark: Embedded Image Traffic
 
 | | |
@@ -31,7 +32,8 @@ This report walks through evidence preparation, browser traffic capture (includi
 
 I created the required lab folder structure with subfolders for evidence, working copies, exported objects, reports, screenshots, and scripts. I then confirmed/installed the required tools — Apache2, curl, Wireshark, tshark, and ImageMagick — were all present or freshly installed, and Apache2 was enabled and started as a system service.
 
-> 📸 **Fig01 — Folder Creation**
+> <img width="1366" height="768" alt="Fig01: Folder Creation" src="https://github.com/user-attachments/assets/3000d38b-921f-4c58-95d3-f55ad2fb621c" />  
+ **Fig01 — Folder Creation** 
 
 I placed my authorized personal image (`Azad.png`, renamed to `lab_photo.jpg` for this exercise — noted honestly, since the file is actually a PNG despite the `.jpg` extension, which we'll verify with `file`/`identify` in Part A) into Apache's web root, and created `image.html` containing a heading, analyst name, and an `<img>` tag referencing the photo. `sha256sum` recorded baseline hashes for both source objects:
 
@@ -40,7 +42,8 @@ I placed my authorized personal image (`Azad.png`, renamed to `lab_photo.jpg` fo
 | `image.html` | `454ac5b6370ca6dd7333221a9ccf8eaa24d0a0e96bf10014741a154244ad5784` |
 | `lab_photo.jpg` | `309a7249050df7fc1021d75ff48090bbc1abd61fbde4bee9b2faa1dbd70be230` |
 
-> 📸 **Fig02 — Object & Hashes**
+> <img width="1366" height="337" alt="Fig02: Object   Hashed" src="https://github.com/user-attachments/assets/ec625bd5-5388-425b-abee-11493560e19f" />  
+ **Fig02 — Object & Hashes**
 
 ---
 
@@ -50,11 +53,13 @@ I placed my authorized personal image (`Azad.png`, renamed to `lab_photo.jpg` fo
 
 `curl -I` against both objects confirmed Apache serves them with `HTTP/1.1 200 OK`. Notably, Apache's `Content-Type` header for the image reports `image/jpeg` — this is because Apache determines Content-Type primarily from the file extension (`.jpg`) via its MIME-type mapping, not by inspecting the actual file bytes. This is a genuinely useful forensic/networking finding: it means the HTTP layer's stated content type can be wrong or misleading if a file has been renamed, and a forensic examiner analyzing HTTP traffic should verify a transferred object's real type (e.g. with `file` after export) rather than trusting the `Content-Type` header alone. `Content-Length: 1391039` matches the file's actual 1.4M size exactly, confirming Apache is at least reporting an accurate size regardless of the mislabeled type.
 
-> 📸 **Fig03 — Eliminate Cache Effects**
+> <img width="1366" height="768" alt="Fig03: Eliminate Cache Effects" src="https://github.com/user-attachments/assets/a68b6399-9f0f-443b-9cba-989bbdf678ae" />  
+ **Fig03 — Eliminate Cache Effects**
 
 Opening `http://127.0.0.1/image.html` in a browser confirmed the page renders correctly, displaying the "SBT-DF203 Image Traffic" heading, "Analyst: Bashir Adam," and the embedded photo — proving Apache is correctly serving both objects and the browser successfully requests and displays each one.
 
-> 📸 **Fig04 — The Image**
+> <img width="1366" height="768" alt="Fig04: The Imag" src="https://github.com/user-attachments/assets/9f8ee016-77a0-4dea-9e3e-2383ce686cb3" />  
+ **Fig04 — The Image**
 
 ---
 
@@ -75,7 +80,8 @@ I moved the capture into my evidence folder and corrected ownership, then create
 
 The matching hash confirms the working copy is byte-for-byte identical to the preserved original, meaning any subsequent analysis performed on the working copy is provably equivalent to analyzing the original evidence.
 
-> 📸 **Fig05 — Traffic**
+> <img width="1366" height="768" alt="Fig05: Trafic" src="https://github.com/user-attachments/assets/612f700e-ca21-480c-a613-5c3170ac847e" />  
+ **Fig05 — Traffic**
 
 ---
 
@@ -91,7 +97,8 @@ Checking the corresponding responses: the image request (frame 15) returned **HT
 
 The seven repeated `image.html` requests are unusual and not part of the expected page-load flow — a single page visit should not repeatedly re-request its own HTML five to nine times over 13 seconds. I'm documenting this honestly rather than removing it: the most likely causes are a browser feature such as automatic page-reload/prefetch, a background extension polling the tab, or the page being manually refreshed multiple times during the capture window. Since each repeat returned 150 bytes (the same content-length as the original HTML, meaning the HTML itself was not re-cached/served as 304), this behavior did not affect the correctness of the core image-transfer evidence I need for Parts D and E, but it is a documented anomaly worth explaining in the report rather than silently omitting.
 
-> 📸 **Fig06 — The Simple Traffic**
+> <img width="1263" height="360" alt="Fig06: The Simple Trafic" src="https://github.com/user-attachments/assets/74162723-20df-4cf7-bf30-ad2af2291210" />  
+ **Fig06 — The Simple Traffic**
 
 ---
 
@@ -105,7 +112,8 @@ Summing the `tcp.len` values for all data-carrying segments in this stream accou
 
 The TCP Conversations summary also shows a second, separate connection (port 59308, only 3 frames, 214 bytes) — a minor additional connection the browser opened, likely for a favicon request or similar background browser behavior, consistent with the lab's own guidance to document rather than delete such incidental traffic.
 
-> 📸 **Fig07 — The TCP Traffic**
+> <img width="1263" height="360" alt="Fig07: The TCP Tracffik" src="https://github.com/user-attachments/assets/cc2ebc0f-193e-45b0-9df9-d5bd44c726ee" />  
+ **Fig07 — The TCP Traffic**
 
 ---
 
@@ -130,7 +138,8 @@ The hashes match exactly. Per the lab's own integrity interpretation guidance, a
 
 The two exported `image.html` copies also share an identical hash to each other (`ff83a2a...`), consistent with the two `GET /image.html` requests both returning the exact same, unchanged HTML content.
 
-> 📸 **Fig08 — The Embedded Image**
+> <img width="1366" height="768" alt="Fig08: The embedded Imag" src="https://github.com/user-attachments/assets/1d15e1a0-8606-4da2-aca1-50441575e529" />  
+ **Fig08 — The Embedded Image**
 
 ---
 
@@ -150,7 +159,8 @@ This is the key difference between curl and a browser: curl is a simple HTTP cli
 
 **Forensic significance:** this distinction matters when analyzing network captures, since the tool used to generate traffic fundamentally changes what evidence appears in a capture. A single curl request in a log or capture cannot be assumed to represent "a user viewing a webpage" the way a full browser session can — a forensic analyst must correlate the number and pattern of requests with the type of client generating them (identifiable via the `User-Agent` header, which curl's own request showed as `curl/8.21.0`, clearly distinguishing it from a browser's User-Agent string) before drawing conclusions about what content a user or system actually rendered and viewed.
 
-> 📸 **Fig09 — The Comparison**
+> <img width="1366" height="768" alt="Fig09: The Compreson" src="https://github.com/user-attachments/assets/f14ce4d6-aa1b-4275-a464-d81d6d123e43" />  
+ **Fig09 — The Comparison**
 
 ---
 
