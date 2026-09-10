@@ -1,0 +1,2 @@
+454ac5b6370ca6dd7333221a9ccf8eaa24d0a0e96bf10014741a154244ad5784  /var/www/html/image.html
+309a7249050df7fc1021d75ff48090bbc1abd61fbde4bee9b2faa1dbd70be230  /var/www/html/lab_photo.jpg
