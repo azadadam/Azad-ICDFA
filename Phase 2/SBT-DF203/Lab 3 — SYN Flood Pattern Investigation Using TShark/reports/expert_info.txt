@@ -1,0 +1,16 @@
+
+Warns (6)
+=============
+   Frequency      Group           Protocol  Summary
+           6   Sequence                TCP  Connection reset (RST)
+
+Notes (7)
+=============
+   Frequency      Group           Protocol  Summary
+           7   Protocol                TCP  The SYN packet does not contain a SACK PERM option
+
+Chats (14)
+=============
+   Frequency      Group           Protocol  Summary
+           7   Sequence                TCP  Connection establish request (SYN): server port 80
+           7   Sequence                TCP  Connection establish acknowledge (SYN+ACK): server port 80
