@@ -2,9 +2,7 @@
 
 ## Assignment Information
 
-  -----------------------------------------------------------------------
-  Field                               Details
-  ----------------------------------- -----------------------------------
+ 
   **Lab Title**                       Lab 4 --- SMTP Email Traffic
                                       Forensics
 
@@ -61,6 +59,8 @@ reserved for a protected appendix only where required.
 
 ## Step 1: Folder Setup and Evidence Preparation
 
+<img width="1366" height="508" alt="Fig01: Folder Setup" src="https://github.com/user-attachments/assets/8911fc9a-e169-4221-a5ff-9ce911e8d8c0" />  
+
 **Fig01: Folder Setup**
 
 ## Step 2: Install Tools, Hash, and `capinfos`
@@ -75,7 +75,9 @@ duration). This directly answers the "when did the exchange occur"
 question: 5 October 2009, 07:06:07--07:06:16 UTC (capinfos reports raw
 timestamps, timezone to be confirmed from context).
 
-**Fig02: Tools**
+<img width="1366" height="768" alt="Fig02: tools" src="https://github.com/user-attachments/assets/518a52dc-060d-4a24-a5d8-02138ef2eb6c" />
+  
+  **Fig02: Tools**
 
 ## Part A: Inventory the Capture and Locate SMTP Streams
 
@@ -87,11 +89,12 @@ Port 25 confirms this is plaintext SMTP (not the submission ports
 The `smtp` filter isolated 28 SMTP-relevant frames (server banner
 through session close). Key observations:
 
--   **First SMTP frame:** #6, 2009-10-05 07:06:08 (server banner)
--   **Last SMTP frame:** #56, 2009-10-05 07:06:15 (server closing
-    connection)
--   **SMTP server port:** 25 (`74.53.140.153`)
--   **Client ephemeral port:** 1470 (`10.10.1.4`)
+| **Observation** | **Finding** |
+|---|---|
+| First SMTP frame | #6, 2009-10-05 07:06:08 (server banner) |
+| Last SMTP frame | #56, 2009-10-05 07:06:15 (server closing connection) |
+| SMTP server port | 25 (74.53.140.153) |
+| Client ephemeral port | 1470 (10.10.1.4) |
 
 I also note frames 26, 28--30 show ICMP "Destination unreachable
 (Fragmentation needed)" messages from an intermediate router
@@ -100,69 +103,33 @@ client to retransmit DATA fragments at a smaller size (1452 bytes
 instead of 1460) afterward. This is a genuine network artifact worth
 noting, not an SMTP protocol event.
 
-**Fig03: Inventory**
+<img width="1366" height="768" alt="Fig03: Inventory" src="https://github.com/user-attachments/assets/16ad149b-47a4-4a28-a7b6-5da61b731688" />
+
+  **Fig03: Inventory**
 
 ## Part B: Identify Commands and Response Codes
 
-  ----------------------------------------------------------------------------------------------------------------
-                 \# Direction     Command/Code   Meaning                                            Timestamp
-  ----------------- ------------- -------------- -------------------------------------------------- --------------
-                  1 Server →      `220`          Service ready ---                                  07:06:08.219
-                    Client                       `220-xc90.websitewelcome.com ESMTP Exim 4.69 #1`   
+  | **#** | **Direction** | **Command/Code** | **Meaning** | **Timestamp** |
+|---:|---|---|---|---|
+| 1 | Server → Client | **220** | Service ready — 220-xc90.websitewelcome.com ESMTP Exim 4.69 #1 | 07:06:08.219 |
+| 2 | Client → Server | **EHLO GP** | Client greeting (extended, not HELO) | 07:06:08.224 |
+| 3 | Server → Client | **250** | Capabilities: SIZE 52428800, PIPELINING, AUTH PLAIN LOGIN, STARTTLS, HELP | 07:06:08.566 |
+| 4 | Client → Server | **AUTH LOGIN** | Authentication method selected | 07:06:08.568 |
+| 5 | Server → Client | **334** | VXNlcm5hbWU6 (Base64 for "Username:") | 07:06:08.911 |
+| 6 | Client → Server | (Base64 username, frame 12) | Credential 1 — **redact in report** | 07:06:08.911 |
+| 7 | Server → Client | **334** | UGFzc3dvcmQ6 (Base64 for "Password:") | 07:06:09.253 |
+| 8 | Client → Server | (Base64 password, frame 14) | Credential 2 — **redact in report** | 07:06:09.254 |
+| 9 | Server → Client | **235** | Authentication succeeded | 07:06:09.613 |
+| 10 | Client → Server | **MAIL FROM** | \<gurpartap@patriots.in> — envelope sender | 07:06:09.614 |
+| 11 | Server → Client | **250** | OK | 07:06:09.956 |
+| 12 | Client → Server | **RCPT TO** | \<raj_deol2002in@yahoo.co.in> — envelope recipient | 07:06:09.957 |
+| 13 | Server → Client | **250** | Accepted | 07:06:10.319 |
+| 14 | Client → Server | **DATA** | Message content begins | 07:06:10.320 |
+| 15 | Server → Client | **354** | "Enter message, ending with '.'" | 07:06:10.661 |
+| 16 | Server → Client | **250** | OK, id=1Mugho-0003Dg-Un (message accepted for delivery) | 07:06:12.248 |
+| 17 | Client → Server | **QUIT** | Session termination | 07:06:14.763 |
+| 18 | Server → Client | **221** | Closing connection | 07:06:15.105 |
 
-                  2 Client →      `EHLO GP`      Client greeting (extended, not HELO)               07:06:08.224
-                    Server                                                                          
-
-                  3 Server →      `250`          Capabilities: `SIZE 52428800`, `PIPELINING`,       07:06:08.566
-                    Client                       `AUTH PLAIN LOGIN`, `STARTTLS`, `HELP`             
-
-                  4 Client →      `AUTH LOGIN`   Authentication method selected                     07:06:08.568
-                    Server                                                                          
-
-                  5 Server →      `334`          `VXNlcm5hbWU6` (Base64 for "Username:")            07:06:08.911
-                    Client                                                                          
-
-                  6 Client →      (Base64        Credential 1 --- redact in report                  07:06:08.911
-                    Server        username,                                                         
-                                  frame 12)                                                         
-
-                  7 Server →      `334`          `UGFzc3dvcmQ6` (Base64 for "Password:")            07:06:09.253
-                    Client                                                                          
-
-                  8 Client →      (Base64        Credential 2 --- redact in report                  07:06:09.254
-                    Server        password,                                                         
-                                  frame 14)                                                         
-
-                  9 Server →      `235`          Authentication succeeded                           07:06:09.613
-                    Client                                                                          
-
-                 10 Client →      `MAIL FROM`    `gurpartap@patriots.in` --- envelope sender        07:06:09.614
-                    Server                                                                          
-
-                 11 Server →      `250`          OK                                                 07:06:09.956
-                    Client                                                                          
-
-                 12 Client →      `RCPT TO`      `raj_deol2002in@yahoo.co.in` --- envelope          07:06:09.957
-                    Server                       recipient                                          
-
-                 13 Server →      `250`          Accepted                                           07:06:10.319
-                    Client                                                                          
-
-                 14 Client →      `DATA`         Message content begins                             07:06:10.320
-                    Server                                                                          
-
-                 15 Server →      `354`          "Enter message, ending with '.'"                   07:06:10.661
-                    Client                                                                          
-
-                 16 Server →      `250`          OK, id=`1Mugho-0003Dg-Un` (message accepted for    07:06:12.248
-                    Client                       delivery)                                          
-
-                 17 Client →      `QUIT`         Session termination                                07:06:14.763
-                    Server                                                                          
-
-                 18 Server →      `221`          Closing connection                                 07:06:15.105
-                    Client                                                                          
-  ----------------------------------------------------------------------------------------------------------------
 
 **Important observation:** The server's own EHLO response (row 3)
 advertised STARTTLS as an available capability, but the client never
@@ -172,7 +139,9 @@ F: encryption was available but not used, meaning the entire session,
 including authentication credentials and message content, was
 transmitted in cleartext and is fully visible in this capture.
 
-**Fig04: Identify Command**
+<img width="1366" height="508" alt="Fig04: Identify Command" src="https://github.com/user-attachments/assets/d3b4657e-58a9-41b4-9c20-5c195ec797d2" />
+
+  **Fig04: Identify Command**
 
 ## Part C: Decode Base64 Authentication Evidence
 
@@ -189,7 +158,9 @@ never negotiated STARTTLS despite the server advertising it as available
 (Part B finding), these credentials were transmitted in a form trivially
 recoverable by anyone capturing the traffic.
 
-**Fig05: Decode Base64**
+<img width="726" height="395" alt="Fig05:Decode Base64" src="https://github.com/user-attachments/assets/c54bbc58-9ef8-43f5-bb0c-3fc411a03288" />
+
+  **Fig05: Decode Base64**
 
 ## Part D: Reconstruct the Email Message
 
@@ -197,27 +168,17 @@ Follow TCP Stream reassembled the entire session in one readable output,
 confirming all envelope commands and revealing the complete RFC 5322
 message headers and body. Extracting the required header fields:
 
-  ------------------------------------------------------------------------
-  Field                               Value
-  ----------------------------------- ------------------------------------
-  **Date**                            Mon, 5 Oct 2009 11:36:07 +0530
+ | **Field** | **Value** |
+|---|---|
+| **Date** | Mon, 5 Oct 2009 11:36:07 +0530 |
+| **From** | "Gurpartap Singh" <gurpartap@patriots.in> |
+| **To** | <raj_deol2002in@yahoo.co.in> |
+| **Subject** | SMTP |
+| **Message-ID** | <000301ca4581imageef9e57f0cedb07d0$@in> |
+| **MIME-Version** | 1.0 |
+| **Content-Type** | multipart/mixed (containing nested multipart/alternative) |
+| **X-Mailer** | **Microsoft Office Outlook 12.0** |
 
-  **From**                            "Gurpartap Singh"
-                                      <gurpartap@patriots.in>
-
-  **To**                              <raj_deol2002in@yahoo.co.in>
-
-  **Subject**                         SMTP
-
-  **Message-ID**                      `000301ca4581ef9e57f0cedb07d0$@in`
-
-  **MIME-Version**                    1.0
-
-  **Content-Type**                    `multipart/mixed` (containing nested
-                                      `multipart/alternative`)
-
-  **X-Mailer**                        Microsoft Office Outlook 12.0
-  ------------------------------------------------------------------------
 
 **Note on Date discrepancy:** The message's internal Date header
 (11:36:07 +0530, i.e. India Standard Time) differs from the SMTP
@@ -249,9 +210,13 @@ headers, further corroborating the
 `X-Mailer: Microsoft Office Outlook 12.0` client identification through
 a second, independent header.
 
-**Fig06: Email Message 1**
+<img width="1366" height="768" alt="Fig06: Email Massage1" src="https://github.com/user-attachments/assets/813f049e-6fcf-4e08-b185-b4017f920b55" />
 
-**Fig07: Email Message 2**
+  **Fig06: Email Message 1**
+
+<img width="1366" height="768" alt="Fig07: Email Massage2" src="https://github.com/user-attachments/assets/e3ae30a8-94bd-4ac7-b6a3-827e0e5cb27f" />
+
+  **Fig07: Email Message 2**
 
 ## Part E: Determine Client, Hosts, and Network Metadata
 
@@ -298,7 +263,9 @@ Stream reconstruction in Part D, so no evidence is missing---this is
 simply a note on why this particular filter combination under-returned
 compared to the stream view.
 
-**Fig08: Network Metadata**
+<img width="1366" height="768" alt="Fig08:Network Metedata" src="https://github.com/user-attachments/assets/fbbf63ee-ada0-4c57-b1a8-96e518e069dd" />
+
+  **Fig08: Network Metadata**
 
 ## Part F: Encryption and Evidential Limitations
 
@@ -382,46 +349,20 @@ report's encryption and evidential-limitations assessment.
 
 ## Findings Worksheet
 
-  --------------------------------------------------------------------------------------
-  Question                            Finding
-  ----------------------------------- --------------------------------------------------
-  **Session start/end**               2009-10-05, 07:06:08.22--07:06:15.11 (raw capture
-                                      timestamps); 9.2 seconds total
-
-  **Client IP/MAC and port**          `10.10.1.4`, `00:e0:1c:3c:17:c2`, port 1470
-
-  **Server IP/MAC and port**          `74.53.140.153`, `00:1f:33:d9:81:60`, port 25
-
-  **SMTP server banner**              `220-xc90.websitewelcome.com ESMTP Exim 4.69 #1`
-
-  **Client software**                 Microsoft Office Outlook 12.0 (confirmed via
-                                      X-Mailer header, corroborated by Outlook-specific
-                                      x-cr-hashedpuzzle/puzzleid headers)
-
-  **Authentication method**           AUTH LOGIN (Base64-encoded username/password over
-                                      plaintext connection)
-
-  **Envelope sender/recipient**       Redacted in report body (see Part C); recorded in
-                                      evidence appendix
-
-  **Message From/To/Subject**         Redacted sender/recipient; Subject: "SMTP"
-
-  **Message body type**               Multipart: `multipart/mixed` →
-                                      `multipart/alternative` (`text/plain` +
-                                      `text/html`)
-
-  **Attachment present?**             Yes---`NEWS.txt`, a plain-text software changelog,
-                                      quoted-printable encoded
-
-  **STARTTLS/TLS observed?**          No. Server advertised STARTTLS in EHLO response;
-                                      client did not use it
-
-  **Key limitations**                 Entire session unencrypted and fully visible;
-                                      message Date header is client-asserted, not
-                                      independently verified; one filter combination in
-                                      Part E under-returned client-indicator text
-                                      (resolved via stream reconstruction instead)
-  --------------------------------------------------------------------------------------
+ | **Question** | **Finding** |
+|---|---|
+| Session start/end | 2009-10-05, 07:06:08.22 – 07:06:15.11 (raw capture timestamps); 9.2 seconds total |
+| Client IP/MAC and port | 10.10.1.4, 00:e0:1c:3c:17:c2, port 1470 |
+| Server IP/MAC and port | 74.53.140.153, 00:1f:33:d9:81:60, port 25 |
+| SMTP server banner | 220-xc90.websitewelcome.com ESMTP Exim 4.69 #1 |
+| Client software | Microsoft Office Outlook 12.0 (confirmed via X-Mailer header, corroborated by Outlook-specific x-cr-hashedpuzzle/puzzleid headers) |
+| Authentication method | AUTH LOGIN (Base64-encoded username/password over plaintext connection) |
+| Envelope sender/recipient | Redacted in report body (see Part C); recorded in evidence appendix |
+| Message From/To/Subject | Redacted sender/recipient; Subject: "SMTP" |
+| Message body type | Multipart: multipart/mixed → multipart/alternative (text/plain + text/html) |
+| Attachment present? | Yes — NEWS.txt, a plain-text software changelog, quoted-printable encoded |
+| STARTTLS/TLS observed? | **No.** Server advertised STARTTLS in EHLO response; client did not use it |
+| Key limitations | Entire session unencrypted and fully visible; message Date header is client-asserted, not independently verified; one filter combination in Part E under-returned client-indicator text (resolved via stream reconstruction instead) |
 
 ## Conclusion
 
