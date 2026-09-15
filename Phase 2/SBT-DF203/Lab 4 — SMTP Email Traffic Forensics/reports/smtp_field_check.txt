@@ -1,0 +1,3 @@
+F	Response	smtp.response	FT_STRING	smtp		0x0	
+F	Response code	smtp.response.code	FT_UINT32	smtp	BASE_DEC	0x0	
+F	Unexpected response code in multiline response	smtp.response.code.unexpected	FT_NONE	smtp		0x0	

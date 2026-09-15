@@ -1,0 +1,12 @@
+From: "Gurpartap Singh" <gurpartap@patriots.in>
+To: <raj_deol2002in@yahoo.co.in>
+Subject: SMTP
+Date: Mon, 5 Oct 2009 11:36:07 +0530
+Message-ID: <000301ca4581$ef9e57f0$cedb07d0$@in>
+MIME-Version: 1.0
+Content-Type: multipart/mixed;
+X-Mailer: Microsoft Office Outlook 12.0
+Content-Type: multipart/alternative;
+Content-Type: text/plain;
+Content-Type: text/html;
+Content-Type: text/plain;
