@@ -26,6 +26,8 @@ This lab, **SBT-DF203 Lab 5: ARP Poisoning Forensics**, investigates normal ARP 
    
 ## Step 1 — Folder, Evidence, Tools, Hash, and Baseline Information  
    
+<img width="657" height="494" alt="Fig01: Folder" src="https://github.com/user-attachments/assets/c52432d5-a69e-473f-9255-fefc3814fe38" />
+
 **Fig01: Folder**  
    
 Evidence hash: `342a75dc002d090cc7fd108994b6c0c9c8eaa3962cf642159b4507d5615adc3e` (original and working copy identical).  
@@ -51,6 +53,8 @@ This is my baseline, trusted gateway MAC address, which becomes the reference va
 | Analysis workstation | Kali Linux, Lenovo ThinkPad L440 |  
 | Notes | Baseline gateway MAC: `34:a5:b4:0c:08:24` (`wlan0`); interface is wireless, not `eth0` |  
    
+<img width="1366" height="768" alt="Fig02: Tools Installation" src="https://github.com/user-attachments/assets/22923e12-6c8c-4037-b8f3-cb8ae323f3fe" />
+
 **Fig02: Tools Installation**  
    
 ## Part A — Observe Normal ARP Resolution  
@@ -65,6 +69,8 @@ This observation is consistent with the initial ARP baseline. No change in the g
    
 **Observation:** The gateway mapping remained unchanged after normal ARP resolution.  
    
+<img width="1366" height="768" alt="Fig03: Normal API Baseline" src="https://github.com/user-attachments/assets/d4fd309a-8b69-4391-90ae-74ebfc69a79e" />
+
 **Fig03: Normal API Baseline**  
    
 ## Part B — Analyze ARP Request and Reply Fields  
@@ -92,6 +98,8 @@ The capture demonstrates normal ARP resolution in both directions. The gateway's
 | 3 | Request (1) | `192.168.0.1` → `192.168.0.101` | Gateway broadcasts a request for Kali's MAC address. |  
 | 4 | Reply (2) | `192.168.0.101` → `192.168.0.1` | Kali replies with MAC `58:91:cf:6f:b5:cb`. |  
    
+<img width="1366" height="768" alt="Fig04:ARP Resolution" src="https://github.com/user-attachments/assets/d2e8d534-d843-4538-9cf3-b13e4c511cd4" />
+
 **Fig04: ARP Resolution**  
    
 ## Part C — Analyze the Supplied Poisoning Capture  
@@ -112,24 +120,30 @@ The IP-to-MAC claim summary shows one occurrence of each mapping. Both replies w
 - `reports/ip_mac_claims.txt`  
 - `reports/unicast_arp_replies.tsv`  
    
+<img width="1366" height="768" alt="Fig05: ARP poisoining " src="https://github.com/user-attachments/assets/e49c0fa7-3f90-452c-b27f-aae682a8b11e" />
+
 **Fig05: ARP Poisoning**  
    
 ## Part D — Detection Logic and Timeline  
-   
-| Time | Claimed IP | Claimed MAC | Target / request seen first? | Assessment |  
-|---|---|---|---|---|  
-| `04:22:03.059513` | `136.160.215.1` | `00:1b:17:00:0a:30` | Gratuitous ARP; no preceding request shown | Not proof of poisoning by itself |  
-| `04:22:44.904124` | `136.160.215.194` | `00:50:56:86:02:65` | Yes — Frame 3 requests this IP | Reply follows a request |  
-| `04:22:49.943044` | `136.160.215.15` | `00:50:56:86:cb:fc` | Yes — Frame 5 requests this IP | Reply follows a request |  
-| `04:23:03.059263` | `136.160.215.1` | `00:1b:17:00:0a:30` | Gratuitous ARP; no preceding request shown | Not proof of poisoning by itself |  
-   
+
 The supplied ARP capture was reviewed for conflicting IP-to-MAC claims, replies without a corresponding recent request, and a MAC address claiming both victim and gateway IP addresses.  
    
 The capture contains two ARP replies. Each follows a request for the same target IP address. The capture also contains gratuitous ARP requests from `136.160.215.1`, using MAC address `00:1b:17:00:0a:30`. These requests are not, by themselves, proof of ARP poisoning.  
    
 No conflicting gateway MAC address or clear man-in-the-middle pattern was established from the supplied capture. Therefore, the available evidence does not confirm ARP poisoning.  
    
-Part D was skipped because the required approved host-only simulation environment and instructor-provided script were not available.  
+Part D was skipped because the required approved host-only simulation environment and instructor-provided script were not available.
+
+
+   
+| Time | Claimed IP | Claimed MAC | Target / request seen first? | Assessment |
+|---|---|---|---|---|
+| 04:22:03.059513 | 136.160.215.1 | 00:1b:17:00:0a:30 | Gratuitous ARP; no preceding request shown | Not proof of poisoning by itself |
+| 04:22:44.904124 | 136.160.215.194 | 00:50:56:86:02:65 | Yes — Frame 3 requests this IP | Reply follows a request |
+| 04:22:49.943044 | 136.160.215.15 | 00:50:56:86:cb:fc | Yes — Frame 5 requests this IP | Reply follows a request |
+| 04:23:03.059263 | 136.160.215.1 | 00:1b:17:00:0a:30 | Gratuitous ARP; no preceding request shown | Not proof of poisoning by itself |  
+   
+  
    
 ## Part E — Restoration and Prevention  
    
@@ -148,6 +162,8 @@ Preventive controls include:
 - Using encrypted application protocols.  
 - Correlating ARP alerts with switch and endpoint logs.  
    
+<img width="1366" height="768" alt="Fig06: Restoration" src="https://github.com/user-attachments/assets/c2eb64dd-b3a9-4649-b5e4-076150c924ca" />
+
 **Fig06: Restoration**  
    
 ## Conclusion  
