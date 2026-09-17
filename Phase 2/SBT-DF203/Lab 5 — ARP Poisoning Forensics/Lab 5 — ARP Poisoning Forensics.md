@@ -162,7 +162,7 @@ Preventive controls include:
 - Using encrypted application protocols.  
 - Correlating ARP alerts with switch and endpoint logs.  
    
-<img width="1366" height="768" alt="Fig06: Restoration" src="https://github.com/user-attachments/assets/c2eb64dd-b3a9-4649-b5e4-076150c924ca" />
+<img width="758" height="366" alt="image" src="https://github.com/user-attachments/assets/b8f098dd-98ff-490c-a5df-b7868fd35d86" />
 
 **Fig06: Restoration**  
    
