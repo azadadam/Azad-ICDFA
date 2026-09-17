@@ -1,0 +1,1 @@
+192.168.0.1 dev wlan0 lladdr 34:a5:b4:0c:08:24 REACHABLE 
