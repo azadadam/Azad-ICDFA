@@ -1,0 +1,28 @@
+*   Trying 192.168.60.1:80...
+* Name '192.168.60.12' family 2 resolved to '192.168.60.12' family 2
+* Local port: 0
+* Established connection to 192.168.60.1 (192.168.60.1 port 80) from 192.168.60.12 port 43648 
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0* using HTTP/1.x
+> GET /firewall_lab.html HTTP/1.1
+> Host: 192.168.60.1
+> User-Agent: curl/8.21.0
+> Accept: */*
+> 
+* Request completely sent off
+< HTTP/1.1 200 OK
+< Date: Fri, 18 Sep 2026 21:34:13 GMT
+< Server: Apache/2.4.68 (Debian)
+< Last-Modified: Fri, 18 Sep 2026 21:22:59 GMT
+< ETag: "77-65bc881305386"
+< Accept-Ranges: bytes
+< Content-Length: 119
+< Vary: Accept-Encoding
+< Content-Type: text/html
+< 
+{ [119 bytes data]
+100    119 100    119   0      0 119.4k      0                              0100    119 100    119   0      0 112.1k      0                              0100    119 100    119   0      0 107.3k      0                              0
+* Connection #0 to host 192.168.60.1:80 left intact
+<!DOCTYPE html>
+<html><body><h1>ICDFA Network Forensics Firewall Lab</h1><p>Server: Bashir-Adam-Kali</p></body></html>
