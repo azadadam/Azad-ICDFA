@@ -46,7 +46,9 @@ Original firewall state exported before any change: `iptables-save` shows defaul
 | Analysis workstation | Kali Linux (Lenovo ThinkPad L440) |
 | Notes | `INPUT` chain empty at baseline (0 rules); pre existing FORWARD/NAT rules on `pan1` are unrelated host config, not lab artefacts |
 
-> 📸 **Fig01 — File Structure**
+<img width="1366" height="768" alt="Fig01: File sturucture" src="https://github.com/user-attachments/assets/bba815e2-f22d-408c-a4a6-39def08a5256" />
+
+> **Fig01 — File Structure**
 
 ### Topology Setup
 
@@ -58,7 +60,10 @@ Two host topology simulated via Linux network namespaces on a single Kali workst
 | Allowed client | `labclient` | `veth-cli` | `192.168.60.11/24` |
 | Blocked client | `labclient` | `veth-cli` | `192.168.60.12/24` |
 
-> 📸 **Fig02 — Network Topology**
+
+<img width="1366" height="768" alt="Fig02: Network Topology" src="https://github.com/user-attachments/assets/9938dbf4-c602-4ce1-81d3-d7243af46243" />
+
+>  **Fig02 — Network Topology**
 
 ---
 
@@ -73,7 +78,9 @@ Baseline curl from both simulated clients succeeded identically:
 | Allowed client (`192.168.60.11`) | Connected to `192.168.60.1:80`, `HTTP/1.1 200 OK`, 119 byte page body returned, connection closed cleanly |
 | Blocked client (`192.168.60.12`) | Connected to `192.168.60.1:80`, `HTTP/1.1 200 OK`, same 119 byte body, connection closed cleanly |
 
-> 📸 **Fig03 — Lab Network**
+<img width="1366" height="768" alt="Fig03: Lab Network" src="https://github.com/user-attachments/assets/39e09749-47a8-474d-94f3-1ccea91d34e1" />
+
+>  **Fig03 — Lab Network**
 
 ---
 
@@ -86,7 +93,9 @@ Captured live traffic between the server (`192.168.60.1`) and the allowed client
 | Evidence file | `evidence/http_allowed.pcapng` |
 | SHA-256 | `ce4ebdb3d479fa1a06c6d297dbd36944c64e43439a6b1f5fdef5c9b019c35939` |
 
-> 📸 **Fig04 — HTTP Baseline**
+<img width="1366" height="768" alt="Fig04: HTTP Baseline" src="https://github.com/user-attachments/assets/3cc85c9b-c75d-490c-b401-2884a810e1e8" />
+
+>  **Fig04 — HTTP Baseline**
 
 ---
 
@@ -99,7 +108,9 @@ A narrowly scoped DROP rule was inserted at `INPUT` position 1, matching only so
 | Rule inserted | `-A INPUT -s 192.168.60.12 -p tcp --dport 80 -j DROP` |
 | Position | 1, `INPUT` chain |
 
-> 📸 **Fig05 — Blocking Rule**
+<img width="913" height="396" alt="Fig05: Blocking Rule" src="https://github.com/user-attachments/assets/ddcebd14-2bca-4679-9197-fe3d6caabc5a" />
+
+>  **Fig05 — Blocking Rule**
 
 ---
 
@@ -115,7 +126,9 @@ The rule counter is the corroborating server side evidence: it went from 0 packe
 | SHA-256 | `a6b419ec97b37f33898fffa8fc91f21ef437b927c05e49b5aebd0768be68e8ae` |
 | Rule counter after test | 7 packets / 420 bytes matched on the DROP rule |
 
-> 📸 **Fig06 — Blocked Traffic**
+<img width="1006" height="614" alt="Fig06:Blocked Traffic" src="https://github.com/user-attachments/assets/45e33404-a1cd-46f0-9b9c-be6c0d78605b" />
+
+>  **Fig06 — Blocked Traffic**
 
 ---
 
@@ -138,7 +151,9 @@ The rule counter is the corroborating server side evidence: it went from 0 packe
 
 The retransmission pattern is itself diagnostic: 7 client side SYN attempts line up exactly with the 7 packet/420 byte counter on the DROP rule, every single retry was silently discarded, none reached the application layer, which is what distinguishes DROP forensically from REJECT (which would show a single RST or ICMP unreachable, not a retry storm).
 
-> 📸 **Fig07 — Blocked Capture**
+<img width="961" height="549" alt="Fig07: Blocked Capture" src="https://github.com/user-attachments/assets/973533ac-e7f0-4454-98c8-a5df6def034e" />
+
+>  **Fig07 — Blocked Capture**
 
 ---
 
@@ -155,7 +170,9 @@ Restored access was then verified functionally: the previously blocked client (`
 | After block test (Part D) | 1 (DROP, 7 pkts hit) | Blocked (timeout) |
 | After removal (Part F) | 0 | Allowed |
 
-> 📸 **Fig08 — Restore Access**
+<img width="1366" height="768" alt="Fig08: Restor Access" src="https://github.com/user-attachments/assets/01917792-1c6b-4b4e-a36c-740e6457f637" />
+
+>  **Fig08 — Restore Access**
 
 ---
 
@@ -184,8 +201,16 @@ The listener log confirms the full TCP conversation passed through the queue ind
 
 Cleanup was performed immediately after the one test request: the NFQUEUE rule was deleted (`iptables -D`), then the listener process was terminated (`kill`). `iptables -L INPUT` afterward confirms the chain is empty again, no NFQUEUE rule left active, satisfying the manual's explicit warning against leaving one running without a listener.
 
-> 📸 **Fig09 — NFQUEUE Python & Installation**
+<img width="1366" height="768" alt="Fig09: NFQUEUE Python   Installation" src="https://github.com/user-attachments/assets/507b0797-a93a-47a5-b01e-e90b999b0c75" />
+
+>  **Fig09 — NFQUEUE Python & Installation**
+
+<img width="1366" height="768" alt="Fig10: NFQUEUE Listener" src="https://github.com/user-attachments/assets/bdc00514-7079-449b-bb15-dd2c47446076" />
+
 > 📸 **Fig10 — NFQUEUE Listener**
+
+<img width="1366" height="768" alt="Fig11: Python unbuffered" src="https://github.com/user-attachments/assets/c7c7b27c-3707-4710-b0f0-f329f06b7597" />
+
 > 📸 **Fig11 — Python Unbuffered**
 
 ---
