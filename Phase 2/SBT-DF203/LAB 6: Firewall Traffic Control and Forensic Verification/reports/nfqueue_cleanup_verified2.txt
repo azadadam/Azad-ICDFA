@@ -1,2 +1,0 @@
-Chain INPUT (policy ACCEPT 3899 packets, 1237K bytes)
-num   pkts bytes target     prot opt in     out     source               destination         
