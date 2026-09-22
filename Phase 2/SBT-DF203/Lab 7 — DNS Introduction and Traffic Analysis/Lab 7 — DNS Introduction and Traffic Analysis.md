@@ -38,7 +38,8 @@ A brief operational issue was encountered and resolved during setup: an accident
 | Analysis workstation | Kali Linux, Lenovo ThinkPad L440 |
 | Active interface | `wlan0` |
 
-> 📸 **Fig01 — Folder Structure**
+> <img width="1366" height="768" alt="Fig01:Folder Sturure" src="https://github.com/user-attachments/assets/a1e5ed95-88f0-428f-be12-9bda7a12d641" />
+ **Fig01 — Folder Structure**
 
 ### Evidence Hashes
 
@@ -48,7 +49,8 @@ A brief operational issue was encountered and resolved during setup: an accident
 | `working/dig_dns_working.pcap` | `9a7c1b95aa6d60f8ac0ee9a79e06ae51145bb7768974526546316cd3dc91375d` |
 | `evidence/fresh_dig_dns.pcapng` | `fcb87ccbff9a1001ee6a4ce4b3d8e5d47fd944f89be5e1b6552ed8c3b18a4bbf` |
 
-> 📸 **Fig02 — Evidence Hashes**
+> <img width="971" height="210" alt="Fig02:Evidence Hashes" src="https://github.com/user-attachments/assets/df3834cd-6824-46a0-980e-bbd5e6640836" />
+ **Fig02 — Evidence Hashes**
 
 ---
 
@@ -65,7 +67,8 @@ The supplied training PCAP (`dig_dns.pcap`) was preserved in `evidence/` with an
 | Evidence SHA-256 | `9a7c1b95aa6d60f8ac0ee9a79e06ae51145bb7768974526546316cd3dc91375d` (both copies) |
 | Configured resolver | `192.168.0.1` (confirmed via `dig`'s SERVER line and `nmcli`) |
 
-> 📸 **Fig03 — The Server**
+> <img width="1366" height="768" alt="Fig03: The Server" src="https://github.com/user-attachments/assets/47264b73-3e42-4158-b8a0-0586f8e97a93" />
+ **Fig03 — The Server**
 
 ### Mini Evidence and Chain of Custody Worksheet
 
@@ -106,8 +109,10 @@ Resolver used: `192.168.0.1` (confirmed in the `SERVER:` line of every response,
 | MX | Identifies the mail exchange server responsible for accepting email for the domain, with a priority value (lower is preferred). The `0 .` answer here is a null MX record: it explicitly signals that `example.com` does not accept email at all, the priority is 0 and the target is the root domain `.`, a deliberate anti spoofing/no mail declaration (RFC 7505), not a misconfiguration |
 | NS | Identifies the authoritative nameservers for the domain. `example.com` is delegated to Cloudflare (`elliott.ns.cloudflare.com`, `hera.ns.cloudflare.com`); the additional section opportunistically includes their A/AAAA glue records so a resolver doesn't need a second lookup just to reach them |
 
-> 📸 **Fig04 — Query DNS 1**
-> 📸 **Fig05 — Query DNS 2**
+> <img width="1366" height="768" alt="Fig04: Query DNS1" src="https://github.com/user-attachments/assets/f51bbf26-a209-4795-9bbd-21950106b686" />
+ **Fig04 — Query DNS 1**
+> <img width="1366" height="768" alt="Fig05: Query DNS2" src="https://github.com/user-attachments/assets/55f7595f-42dc-4aa8-af5c-cf4900172c08" />
+ **Fig05 — Query DNS 2**
 
 ---
 
@@ -120,7 +125,8 @@ A controlled, single DNS query was generated with `dig +noedns example.com A` wh
 | Evidence file | `evidence/fresh_dig_dns.pcapng` |
 | SHA-256 | `fcb87ccbff9a1001ee6a4ce4b3d8e5d47fd944f89be5e1b6552ed8c3b18a4bbf` |
 
-> 📸 **Fig06 — The DNS Capture**
+> <img width="829" height="494" alt="Fig06 The DNS Capture" src="https://github.com/user-attachments/assets/85178307-5623-4cb3-a121-8c867a27aff7" />
+ **Fig06 — The DNS Capture**
 
 ---
 
@@ -150,7 +156,8 @@ A controlled, single DNS query was generated with `dig +noedns example.com A` wh
 | A answers | `172.66.147.243`, `104.20.23.154` |
 | TTL | 168, 168 |
 
-> 📸 **Fig07 — DNS Report Fields**
+> <img width="1366" height="399" alt="Fig07: DNS Report Fields" src="https://github.com/user-attachments/assets/94b50557-7810-4a44-8967-ad3da824233b" />
+ **Fig07 — DNS Report Fields**
 
 ---
 
@@ -194,7 +201,8 @@ A controlled, single DNS query was generated with `dig +noedns example.com A` wh
 
 **Evidence file:** `evidence/browser_dns.pcapng` (67 packets)
 
-> 📸 **Fig08 — Browser Generated DNS**
+> <img width="1366" height="768" alt="Fig08: Browser Generated DNS" src="https://github.com/user-attachments/assets/8cd69d32-47a2-419a-b7d0-674b503c675c" />
+ **Fig08 — Browser Generated DNS**
 
 ---
 
@@ -225,7 +233,8 @@ This is a clean, direct correlation: the client resolved `github.com` to `140.82
 - Several domains returned multiple A records (e.g. `github-cloud.s3.amazonaws.com` with 8 IPs) but the client only connected to one, normal DNS/CDN load balancing behaviour, where the client picks one candidate IP from the answer set rather than connecting to all of them.
 - No IPv6/AAAA answers appeared in this capture, so no IPv4 versus IPv6 connection mismatch needed to be reconciled here.
 
-> 📸 **Fig09 — Correlate DNS**
+> <img width="1366" height="768" alt="Fig09:Corelate DNS" src="https://github.com/user-attachments/assets/1ea5e7e7-9f24-4060-9b13-15ba5319d859" />
+ **Fig09 — Correlate DNS**
 
 ---
 
@@ -243,6 +252,9 @@ The Lab 4 SMTP capture (`smtp_working.pcap`) contains one DNS transaction preced
 | TTL values | 10827, 10828, 82828, 82828 (seconds) |
 
 Before establishing the SMTP session, the client resolved `mail.patriots.in` to locate the mail server's IP address (`74.53.140.153`), this is the standard pattern of using an A record directly for the mail host (rather than an MX lookup on the bare domain), consistent with a client configured to connect to a specific named mail server rather than discovering it via MX delegation. The response name chain repeating `patriots.in` several times reflects multiple resource records returned in the same answer (e.g. accompanying NS or SOA adjacent records bundled in the response), each carrying its own TTL, the relatively long TTLs (up to approximately 23 hours for the 82828 second values) are typical for infrastructure records like mail server or domain NS entries, which change far less frequently than, say, a CDN fronted web A record.
+
+> <img width="1366" height="399" alt="Fig10: SMTP Evidence" src="https://github.com/user-attachments/assets/4471d5aa-8b4b-4059-afbb-17f73e9e2877" />
+ **Fig10: SMTP Evidence**
 
 ---
 
