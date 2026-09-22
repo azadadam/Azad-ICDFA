@@ -1,0 +1,18 @@
+Global
+       Protocols: +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+resolv.conf mode: stub
+
+Link 2 (eth0)
+    Current Scopes: none
+         Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+     Default Route: no
+
+Link 3 (wlan0)
+    Current Scopes: LLMNR/IPv4 LLMNR/IPv6
+         Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+     Default Route: no
+
+Link 4 (pan1)
+    Current Scopes: LLMNR/IPv4 LLMNR/IPv6
+         Protocols: -DefaultRoute +LLMNR -mDNS -DNSOverTLS DNSSEC=no/unsupported
+     Default Route: no

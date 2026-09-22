@@ -1,0 +1,35 @@
+
+; <<>> DiG 9.20.27-2-Debian <<>> example.com NS
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 56761
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 13
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 1232
+;; QUESTION SECTION:
+;example.com.			IN	NS
+
+;; ANSWER SECTION:
+example.com.		81	IN	NS	elliott.ns.cloudflare.com.
+example.com.		81	IN	NS	hera.ns.cloudflare.com.
+
+;; ADDITIONAL SECTION:
+hera.ns.cloudflare.com.	3180	IN	A	108.162.192.162
+hera.ns.cloudflare.com.	3180	IN	A	172.64.32.162
+hera.ns.cloudflare.com.	3180	IN	A	173.245.58.162
+elliott.ns.cloudflare.com. 1340	IN	A	108.162.195.228
+elliott.ns.cloudflare.com. 1340	IN	A	162.159.44.228
+elliott.ns.cloudflare.com. 1340	IN	A	172.64.35.228
+hera.ns.cloudflare.com.	3180	IN	AAAA	2606:4700:50::adf5:3aa2
+hera.ns.cloudflare.com.	3180	IN	AAAA	2803:f800:50::6ca2:c0a2
+hera.ns.cloudflare.com.	3180	IN	AAAA	2a06:98c1:50::ac40:20a2
+elliott.ns.cloudflare.com. 1340	IN	AAAA	2606:4700:58::a29f:2ce4
+elliott.ns.cloudflare.com. 1340	IN	AAAA	2803:f800:50::6ca2:c3e4
+elliott.ns.cloudflare.com. 1340	IN	AAAA	2a06:98c1:50::ac40:23e4
+
+;; Query time: 216 msec
+;; SERVER: 192.168.0.1#53(192.168.0.1) (UDP)
+;; WHEN: Tue Sep 22 21:17:10 WAT 2026
+;; MSG SIZE  rcvd: 362
+
