@@ -1,0 +1,9 @@
+OX_7530541819({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"http://ox-d.imgur.servedbyopenx.com/{medium}/1.0/{rtype}?ai=be8fa4fd-c7aa-4495-ba9d-f46c371c8e1d&ts={txn_state}",
+    "pixels":"http://us-u.openx.net/w/1.0/pd?plm=5&ph=d14b94c9-e278-4d1d-87a0-a6a729350974",
+    "adunits" : [
+    ]
+  }
+});
