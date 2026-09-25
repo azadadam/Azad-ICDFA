@@ -39,7 +39,7 @@ Folder structure created under `~/SBT-DF203-Lab9`. The historical training captu
 | `working/file_working.xz` | `dd54144caef34f228bfb4b87a9101ca7173969376f7ed357bd068061d4f4b8d6` |
 | `working/file_working` | `c17a3f9b955e84f5befd476dbd55c67286d1e3eea9ab402d5359cac0874ebb2d` |
 
-![Fig01: Evidence Preservation and Decompression](images/fig01-evidence-preservation-decompression.png)
+<img width="1366" height="768" alt="Fig01:Evidence Preservation and Decompression" src="https://github.com/user-attachments/assets/2e1d62dc-bad6-42d2-830e-859c916f7662" />
 
 **Fig01: Evidence Preservation and Decompression**
 
@@ -93,11 +93,11 @@ The first 100 frames are dominated by RTS/CTS control-frame exchanges (type 1) a
 
 **Evidence files generated:** `reports/capinfos.txt`, `reports/protocol_hierarchy.txt`, `reports/wlan_frame_sample.tsv`
 
-![Fig02: Wireless Capture 1](images/fig02-wireless-capture-1.png)
+<img width="1366" height="768" alt="Fig02: Wireless Capture 1" src="https://github.com/user-attachments/assets/36533bd1-8c34-47f4-91bc-49cb7cefdb7a" />
 
 **Fig02: Wireless Capture 1**
 
-![Fig03: Wireless Capture 2](images/fig03-wireless-capture-2.png)
+<img width="1366" height="768" alt="Fig03: Wireless Capture 2" src="https://github.com/user-attachments/assets/ed28ec3e-1329-46d5-9a08-862bf8e17a46" />
 
 **Fig03: Wireless Capture 2**
 
@@ -124,7 +124,7 @@ IV field: Present and populated on every protected frame (e.g. `0x67ffec`, `0xc2
 
 Repeated IV evidence: The top-30 IV frequency count shows clear repetition — IV `0x42e8eb` appears 7 times, `0x28d3eb` 7 times, `0x95dfeb` 6 times, several others 3–5 times each. Since WEP's IV space is only 2²⁴ (~16.7 million possible values) and this capture contains over 15,000 data frames concentrated in under 5 minutes, repeated IVs across different frames are statistically expected — and directly demonstrated here.
 
-![Fig04: WEP Protection and Key Parameters](images/fig04-wep-protection-key-parameters.png)
+<img width="1366" height="768" alt="Fig04: WEP Protection and Key Parameters" src="https://github.com/user-attachments/assets/841ac326-1c19-437a-9b9b-b353400b159c" />
 
 **Fig04: WEP Protection and Key Parameters**
 
@@ -147,11 +147,11 @@ This independently confirms the historical key stated on the source slide deck (
 
 **Evidence files:** `reports/aircrack_output.txt`, `reports/validated_wep40_key_masked.txt`
 
-![Fig05: Recover WEP40 Key](images/fig05-recover-wep40-key.png)
+<img width="992" height="527" alt="Fig05:Recover WEP40 Key" src="https://github.com/user-attachments/assets/8b26bb1f-4108-467b-a92b-723574b427db" />
 
 **Fig05: Recover WEP40 Key**
 
-![Fig06: Validate the WEP40 Key](images/fig06-validate-wep40-key.png)
+<img width="739" height="476" alt="Fig06: Validate the WEP40 Key" src="https://github.com/user-attachments/assets/09f58425-016a-4c7e-a826-3791de4d2f83" />
 
 **Fig06: Validate the WEP40 Key**
 
@@ -187,7 +187,7 @@ Every single WEP-protected data packet decrypted successfully with zero corrupti
 
 The identical hash between `file` and `file_working` confirms no alteration occurred during the earlier copy/rename step, and the decrypted derivative is now hashed and preserved as its own distinct piece of evidence, per the manual's chain-of-custody requirement.
 
-![Fig07: Capture Offline](images/fig07-capture-offline.png)
+<img width="837" height="593" alt="Fig07: Capture Offline" src="https://github.com/user-attachments/assets/af0dd710-d95d-403e-8c33-d6ee3f99b467" />
 
 **Fig07: Capture Offline**
 
@@ -233,7 +233,7 @@ Note on MAC fields: `wlan.sa`/`wlan.da` returned empty in the field-extraction q
 
 **Evidence files:** `reports/ethernet_endpoints.txt`, `reports/ip_endpoints.txt`, `reports/tcp_conversations.txt`, `reports/ip_mac_mapping_sample.tsv`
 
-![Fig08: Extract Endpoints](images/fig08-extract-endpoints.png)
+<img width="1366" height="768" alt="Fig08: Extract Endpoints" src="https://github.com/user-attachments/assets/66cc73f3-45ca-4f1d-8c77-73abd5d4361f" />
 
 **Fig08: Extract Endpoints**
 
@@ -262,7 +262,8 @@ Hash verification: Every recovered file (both HTTP-exported and foremost-carved)
 
 **Evidence files:** `exported/http_objects/` (100+ files), `exported/foremost/{gif,jpg,png,htm}/` (17 files), `reports/exported_file_types.txt`, `reports/exported_file_hashes.txt`
 
-![Fig09: Extract Images](images/fig09-extract-images.png)
+
+<img width="1366" height="768" alt="Fig09: Extract Images" src="https://github.com/user-attachments/assets/d7d91cbc-76fe-4937-a7ef-08bb9481b804" />
 
 **Fig09: Extract Images**
 
