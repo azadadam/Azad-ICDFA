@@ -1,0 +1,31 @@
+Sep 24 22:52:28 dnsmasq[257147]: started, version 2.93 cachesize 150
+Sep 24 22:52:28 dnsmasq[257147]: compile time options: IPv6 GNU-getopt DBus no-UBus i18n IDN2 DHCP DHCPv6 no-Lua TFTP conntrack ipset nftset auth DNSSEC loop-detect inotify dumpfile
+Sep 24 22:52:28 dnsmasq[257147]: warning: no upstream servers configured
+Sep 24 22:52:28 dnsmasq[257147]: cleared cache
+Sep 24 22:52:28 dnsmasq[257147]: query[A] portal.icdfa.test from 192.168.70.11
+Sep 24 22:52:28 dnsmasq[257147]: config portal.icdfa.test is 192.168.70.1
+Sep 24 22:54:42 dnsmasq[257147]: query[A] portal.icdfa.test from 192.168.70.11
+Sep 24 22:54:42 dnsmasq[257147]: config portal.icdfa.test is 192.168.70.1
+Sep 24 22:54:42 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 22:54:42 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 22:54:42 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 22:54:42 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:09:54 dnsmasq[257147]: query[A] portal.icdfa.test from 192.168.70.11
+Sep 24 23:09:54 dnsmasq[257147]: config portal.icdfa.test is 192.168.70.1
+Sep 24 23:09:54 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:09:54 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:09:54 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:09:54 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:15:30 dnsmasq[257147]: query[A] portal.icdfa.test from 192.168.70.11
+Sep 24 23:15:30 dnsmasq[257147]: config portal.icdfa.test is 192.168.70.1
+Sep 24 23:15:30 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:15:30 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:15:30 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:15:30 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:19:54 dnsmasq[257147]: query[A] portal.icdfa.test from 192.168.70.11
+Sep 24 23:19:54 dnsmasq[257147]: config portal.icdfa.test is 192.168.70.1
+Sep 24 23:19:54 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:19:54 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:19:54 dnsmasq[257147]: query[AAAA] portal.icdfa.test from 192.168.70.11
+Sep 24 23:19:54 dnsmasq[257147]: config error is REFUSED (EDE: not ready)
+Sep 24 23:22:16 dnsmasq[257147]: exiting on receipt of SIGTERM

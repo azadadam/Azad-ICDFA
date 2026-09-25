@@ -1,0 +1,3 @@
+192.168.0.1 dev wlan0 lladdr 34:a5:b4:0c:08:24 REACHABLE 
+192.168.70.11 dev veth-srv lladdr ea:8e:3c:2c:2c:18 REACHABLE 
+192.168.0.1 dev wlan0 lladdr 34:a5:b4:0c:08:24 REACHABLE 
