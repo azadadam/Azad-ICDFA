@@ -1,0 +1,42 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Fri Sep 25 10:38:15 2026
+Invocation: foremost -i working/file_working-dec -o exported/foremost 
+Output directory: /home/azad/SBT-DF203-Lab9/exported/foremost
+Configuration file: /etc/foremost.conf
+------------------------------------------------------------------
+File: working/file_working-dec
+Start: Fri Sep 25 10:38:15 2026
+Length: 12 MB (12784501 bytes)
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000104.jpg 	     258 KB 	      53549 	 
+1:	00004538.jpg 	      87 KB 	    2323670 	 
+2:	00000406.gif 	       35 B 	     208185 	  (1 x 1)
+3:	00001260.gif 	       35 B 	     645564 	  (1 x 1)
+4:	00002450.gif 	       42 B 	    1254588 	  (1 x 1)
+5:	00003653.gif 	       35 B 	    1870635 	  (1 x 1)
+6:	00003719.gif 	       35 B 	    1904213 	  (1 x 1)
+7:	00010456.gif 	       49 B 	    5353479 	  (1 x 1)
+8:	00010876.gif 	       35 B 	    5568641 	  (1 x 1)
+9:	00001639.htm 	       67 B 	     839396 	 
+10:	00024427.htm 	       1 KB 	   12506741 	 
+11:	00001765.png 	      283 B 	     904100 	  (44 x 44)
+12:	00001831.png 	      166 B 	     937711 	  (12 x 12)
+13:	00010214.png 	       67 B 	    5229704 	  (1 x 1)
+14:	00010671.png 	      110 B 	    5464006 	  (1 x 400)
+15:	00020736.png 	      425 B 	   10616910 	  (19 x 19)
+16:	00024242.png 	      589 B 	   12412171 	  (19 x 19)
+Finish: Fri Sep 25 10:38:16 2026
+
+17 FILES EXTRACTED
+	
+jpg:= 2
+gif:= 7
+htm:= 2
+png:= 6
+------------------------------------------------------------------
+
+Foremost finished at Fri Sep 25 10:38:16 2026
