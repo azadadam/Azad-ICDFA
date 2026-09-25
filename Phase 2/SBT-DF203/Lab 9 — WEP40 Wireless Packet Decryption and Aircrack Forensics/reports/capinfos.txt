@@ -1,0 +1,26 @@
+File name:           working/file_working
+File type:           Wireshark/tcpdump/... - pcap
+File encapsulation:  IEEE 802.11 Wireless LAN
+File timestamp precision:  microseconds (6)
+Packet size limit:   file hdr: 65535 bytes
+Number of packets:   45 k
+File size:           14 MB
+Data size:           13 MB
+Capture duration:    272.969795 seconds
+Earliest packet time: 2015-03-06 08:51:54.364525
+Latest packet time:   2015-03-06 08:56:27.334320
+Data byte rate:      49 kBps
+Data bit rate:       395 kbps
+Average packet size: 299.13 bytes
+Average packet rate: 165 packets/s
+SHA256:              c17a3f9b955e84f5befd476dbd55c67286d1e3eea9ab402d5359cac0874ebb2d
+SHA1:                cb929fd6e407c13639e3168b0f35f921788478d3
+Strict time order:   False
+Number of interfaces in file: 1
+Interface #0 info:
+                     Encapsulation = IEEE 802.11 Wireless LAN (20 - ieee-802-11)
+                     Capture length = 65535
+                     Time precision = microseconds (6)
+                     Time ticks per second = 1000000
+                     Number of stat entries = 0
+                     Number of packets = 45169

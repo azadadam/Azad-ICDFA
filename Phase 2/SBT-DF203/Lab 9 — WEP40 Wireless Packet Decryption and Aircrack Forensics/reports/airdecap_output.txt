@@ -1,0 +1,10 @@
+[2KTotal number of stations seen           10
+Total number of packets read         45169
+Total number of WEP data packets     15477
+Total number of WPA data packets         0
+Number of plaintext data packets         0
+Number of decrypted WEP  packets     15477
+Number of corrupted WEP  packets         0
+Number of decrypted WPA  packets         0
+Number of bad TKIP (WPA) packets         0
+Number of bad CCMP (WPA) packets         0

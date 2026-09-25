@@ -1,0 +1,21 @@
+================================================================================
+Ethernet Endpoints
+Filter:<No Filter>
+                       | Packets | |  Bytes  | | Tx Packets | | Tx Bytes | | Rx Packets | | Rx Bytes |
+Apple_68:96:7c              15407   12 MB            7076      616 kB            8331      11 MB       
+EFMNetworks_55:97:d4        15020   12 MB            8178      11 MB             6842      593 kB      
+ASUSTekCOMPU_2a:c2:7a          358   281 kB            223      270 kB             135      11 kB       
+IPv4mcast_fb                   42   6,648 bytes         0      0 bytes             42      6,648 bytes 
+IPv6mcast_fb                   36   7,022 bytes         0      0 bytes             36      7,022 bytes 
+Broadcast                      31   3,386 bytes         0      0 bytes             31      3,386 bytes 
+IPv4mcast_7f:ff:fa             31   11 kB               0      0 bytes             31      11 kB       
+IPv6mcast_16                   10   920 bytes           0      0 bytes             10      920 bytes   
+IPv6mcast_02                    9   630 bytes           0      0 bytes              9      630 bytes   
+IPv4mcast_16                    3   180 bytes           0      0 bytes              3      180 bytes   
+IPv4mcast_02                    2   92 bytes            0      0 bytes              2      92 bytes    
+NetisTechnol_48:e5:b4            1   42 bytes            0      0 bytes              1      42 bytes    
+NetisTechnol_48:a8:b5            1   42 bytes            0      0 bytes              1      42 bytes    
+08:10:77:92:7c:2f               1   42 bytes            0      0 bytes              1      42 bytes    
+TendaTechnol_58:c4:ba            1   42 bytes            0      0 bytes              1      42 bytes    
+IPv6mcast_ff:2a:c2:7a            1   78 bytes            0      0 bytes              1      78 bytes    
+================================================================================

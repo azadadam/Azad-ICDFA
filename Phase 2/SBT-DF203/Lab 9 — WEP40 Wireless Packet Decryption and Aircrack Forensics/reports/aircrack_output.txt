@@ -1,0 +1,31 @@
+Reading packets, please wait...
+Opening working/file_working
+[0KRead 45169 packets.
+
+   #  BSSID              ESSID                     Encryption
+
+   1  00:26:66:55:97:D6  cgnetwork                 WEP (15477 IVs)
+
+Choosing first network as target.
+
+Reading packets, please wait...
+Opening working/file_working
+[0KRead 45169 packets.
+
+1 potential targets
+
+Attack will be restarted every 5000 captured ivs.
+[6;27HGot 15477 out of 15000 IVs[0KStarting PTW attack with 15477 ivs.
+[2J[2;32HAircrack-ng 1.7 
+
+[5;18H[00:00:00] Tested 83 keys (got 15477 IVs)[0K[7;4HKB    depth   byte(vote)
+    0    0/  1   A4(22784) 62(20992) A8(19968) B6(19968) 42(19456) 
+    1    0/  1   3D(23040) 51(20736) 07(20480) 62(19968) 7B(19968) 
+    2    0/  1   F6(23808) E4(20992) D0(20736) 68(20224) 95(19712) 
+    3    1/ 10   F3(20480) C5(19968) D0(19968) 3E(19712) 43(19456) 
+    4    6/  9   01(19712) 20(19456) 3E(19456) 52(19456) 5C(19456) 
+[0J
+[0K[25CKEY FOUND! [ A4:3D:F6:F3:74 ] 
+	Decrypted correctly: 100%
+
+

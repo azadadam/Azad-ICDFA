@@ -1,0 +1,4 @@
+ 19171889  12540 -rw-rw-r--   1 azad     azad     12837660 Sep 25 10:06 working/file_working.xz
+ 19171905  13904 -rw-rw-r--   1 azad     azad     14234002 Sep 25 10:06 working/file_working
+ 19171898  13904 -rw-rw-r--   1 azad     azad     14234002 Sep 25 09:55 working/file
+ 19171924  12488 -rw-rw-r--   1 azad     azad     12784501 Sep 25 10:32 working/file_working-dec
