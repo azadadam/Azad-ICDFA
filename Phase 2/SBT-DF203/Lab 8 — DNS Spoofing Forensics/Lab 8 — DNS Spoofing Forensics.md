@@ -39,7 +39,7 @@ The instructor supplied scripts `arp.py` and `dns_spoof.py` were downloaded into
 
 A local authoritative resolver (`dnsmasq`) was configured on the analyst side, bound to `veth-srv` (`192.168.70.1`), serving `portal.icdfa.test` → `192.168.70.1`, with the victim namespace's resolver pointed at it via `/etc/netns/labclient/resolv.conf`. This was necessary because the victim's default network path could not reach the real upstream DNS server from inside the isolated namespace.
 
-![Fig01: Lab Folder](images/fig01-lab-folder.png)
+<img width="1366" height="768" alt="Fig01: Lab folder" src="https://github.com/user-attachments/assets/e6ac46af-1328-4682-8b8d-4f797917833e" />
 
 **Fig01: Lab Folder**
 
@@ -78,7 +78,7 @@ A local authoritative resolver (`dnsmasq`) was configured on the analyst side, b
 **Evidence file:** `evidence/dns_baseline.pcapng`
 **SHA-256:** `8cccaf45c2b04e69cc4cd2f581ca4115f9a955d927acc096aebdecb28b68173f`
 
-![Fig02: Document the Baseline](images/fig02-document-baseline.png)
+<img width="1366" height="768" alt="Fig02:Document the Baseline" src="https://github.com/user-attachments/assets/5c63f65f-9d3f-4a43-90d5-4ae37fb1d37e" />
 
 **Fig02: Document the Baseline**
 
@@ -96,7 +96,7 @@ The `arp.py` and `dns_spoof.py` scripts were reviewed line by line before execut
 
 **Evidence files:** `reports/ip_forward_before.txt`, `reports/iptables_before.rules`, `reports/direct_page_test.html`, `reports/arp_script_review.txt`, `reports/dns_script_review.txt`
 
-![Fig03: Authorized Simulation](images/fig03-authorized-simulation.png)
+<img width="1366" height="768" alt="Fig03:Authorized Simulation" src="https://github.com/user-attachments/assets/f88526bb-f6f0-47f3-b04a-0b6d8a55d774" />
 
 **Fig03: Authorized Simulation**
 
@@ -125,7 +125,7 @@ The controlled DNS spoofing simulation was executed under self authorization (an
 **Evidence file:** `evidence/dns_spoof_controlled.pcapng`
 **SHA-256:** `7f522ca556f4beb2f7af346b4a35397d79bca319db5dffcfc0e2593e43b0fdbe`
 
-![Fig04: Capture the Controlled Spoofing Event](images/fig04-capture-controlled-spoofing.png)
+<img width="1366" height="768" alt="Fig04: Capture the Controlled Spoofing Event" src="https://github.com/user-attachments/assets/01d4b6eb-6a58-4da5-95ac-b3a4b1970df7" />
 
 **Fig04: Capture the Controlled Spoofing Event**
 
@@ -167,7 +167,7 @@ The controlled DNS spoofing simulation was executed under self authorization (an
 
 **Time delta, DNS answer to connection:** 0.606959 minus 0.579498 (frame 7) is approximately **0.027 s (approximately 27 ms)**, the victim connected to the forged IP within milliseconds of receiving the forged answer, confirming direct cause and effect: the browser trusted and acted on the spoofed record immediately.
 
-![Fig05: Detect DNS Spoofing Indicators](images/fig05-detect-dns-spoofing-indicators.png)
+<img width="1366" height="768" alt="Fig05:Detect DNS Spoofing Indicators" src="https://github.com/user-attachments/assets/27ed9db0-6b59-43ee-87b0-7bb0c61e45d5" />
 
 **Fig05: Detect DNS Spoofing Indicators**
 
@@ -201,7 +201,7 @@ Post cleanup `iptables -L` confirms the FORWARD chain contains only the three pr
 
 **Cleanup verification evidence:** `reports/iptables_after_cleanup.txt`, `reports/arp_after_cleanup.txt`, `reports/process_cleanup_check.txt`, `reports/interfaces_after_cleanup.txt`
 
-![Fig06: Cleanup and Verification](images/fig06-cleanup-verification.png)
+<img width="1366" height="768" alt="Fig06:Cleanup and Verification" src="https://github.com/user-attachments/assets/ffa68351-9054-4fbd-af1f-59e796b2c03d" />
 
 **Fig06: Cleanup and Verification**
 
