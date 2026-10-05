@@ -125,7 +125,8 @@ The server replied `302 Moved Temporarily` to `/secure/success` and issued a `JS
 
 > **Clock discrepancy:** the server's `Date` header in the response to the POST reads `Tue, 22 Jul 2008 07:24:45 GMT`, about 1 h 20 min later than the sniffer's 06:04:24 UTC for the same exchange. The sniffer and server clocks were not synchronised. PCAP timestamps are used throughout. **Evidence:** E07, Fig04.
 
-![Fig03: Wireshark view of the POST packet](screenshots/Fig03_wireshark_post_packet83601_ethernet_mac.png)
+<img width="1366" height="768" alt="Fig03: Wireshark view of the POST packet" src="https://github.com/user-attachments/assets/42e0cb01-3b60-41ce-9780-4ed4a689481c" />
+
 
 *Fig03: Wireshark GUI with filter `http.host contains "willselfdestruct"`: POST packet 83601 selected, Ethernet II (source MAC) and HTTP detail expanded, time column in UTC (E03, E04).*
 
@@ -241,18 +242,3 @@ The capture shows that the device with MAC `00:17:f2:e2:c0:ce` (IP `192.168.15.4
 | E08 | 83326 | Gmail channel request from the device, 06:04:05.546193 | Gmail in use shortly before the POST | Fig07 |
 
 ---
-
-## 8. Figure Index
-
-| Figure | File (in `screenshots/`) | Section | Shows |
-|---|---|---|---|
-| Fig00 | `Fig00_evidence_acquisition_hash_capinfos.png` | 3. Evidence Acquisition | Download, matching hashes, capinfos |
-| Fig01 | `Fig01_capture_opened_in_wireshark_94410_packets.png` | 4. Method | Working copy opened in Wireshark, 94,410 packets |
-| Fig02 | `Fig02_tshark_get_post_willselfdestruct.png` | Finding 2 | GET and POST requests to the service, source MAC |
-| Fig03 | `Fig03_wireshark_post_packet83601_ethernet_mac.png` | Finding 3 | POST packet in Wireshark, Ethernet II, UTC time |
-| Fig04 | `Fig04_tcp_stream1707_post_body.png` | Finding 3 | Stream 1707: POST body and server response |
-| Fig05 | `Fig05_cookie_email_pattern_search_245_packets.png` | Finding 5 | Email-pattern cookie search, 245 packets by host |
-| Fig06 | `Fig06_cookie_identifiers_gmail_facebook_redacted.png` | Finding 5 | Gmail and Facebook identifiers (redacted) |
-| Fig07 | `Fig07_identity_windows_and_traffic_around_post.png` | Finding 5 | Identity time windows and traffic around the POST |
-
-*Training material from the Nitroba University Harassment Scenario (Digital Corpora) was used only for this authorised academic case study. No host, account or person in the evidence was contacted.*
