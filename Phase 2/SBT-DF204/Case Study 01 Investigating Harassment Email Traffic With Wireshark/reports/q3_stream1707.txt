@@ -1,0 +1,32 @@
+
+===================================================================
+Follow: tcp,ascii
+Filter: tcp.stream eq 1707
+Node 0: 192.168.15.4:36044
+Node 1: 69.25.94.22:80
+649
+POST /secure/submit HTTP/1.1
+Accept: image/gif, image/x-xbitmap, image/jpeg, image/pjpeg, application/x-shockwave-flash, */*
+Referer: http://www.willselfdestruct.com/secure/submit
+Accept-Language: en-us
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: www.willselfdestruct.com
+Content-Length: 188
+Connection: Keep-Alive
+Cache-Control: no-cache
+
+to=lilytuckrige@yahoo.com&from=&subject=you+can%27t+find+us&message=and+you+can%27t+hide+from+us.%0D%0A%0D%0AStop+teaching.%0D%0A%0D%0AStart+running.+&type=0&ttl=30&submit.x=92&submit.y=26
+	289
+HTTP/1.1 302 Moved Temporarily
+Date: Tue, 22 Jul 2008 07:24:45 GMT
+Server: Apache
+Set-Cookie: JSESSIONID=C16BFAC8710DA82AB3D8D80AE0F4F05A; Path=/
+Location: http://www.willselfdestruct.com/secure/success
+Content-Length: 0
+Connection: close
+Content-Type: text/plain; charset=UTF-8
+
+
+===================================================================

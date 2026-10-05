@@ -1,0 +1,26 @@
+File name:           working/nitroba_working.pcap
+File type:           Wireshark/tcpdump/... - pcap
+File encapsulation:  Ethernet
+File timestamp precision:  microseconds (6)
+Packet size limit:   file hdr: 4096 bytes
+Number of packets:   94 k
+File size:           56 MB
+Data size:           54 MB
+Capture duration:    15759.950751 seconds
+Earliest packet time: 2008-07-22 02:51:07.095278
+Latest packet time:   2008-07-22 07:13:47.046029
+Data byte rate:      3,468 bytes/s
+Data bit rate:       27 kbps
+Average packet size: 579.07 bytes
+Average packet rate: 5 packets/s
+SHA256:              2b77a9eaefc1d6af163d1ba793c96dbccacb04e6befdf1a0b01f8c67553ec2fb
+SHA1:                65656392412add15f93f8585197a8998aaeb50a1
+Strict time order:   True
+Number of interfaces in file: 1
+Interface #0 info:
+                     Encapsulation = Ethernet (1 - ether)
+                     Capture length = 4096
+                     Time precision = microseconds (6)
+                     Time ticks per second = 1000000
+                     Number of stat entries = 0
+                     Number of packets = 94410
